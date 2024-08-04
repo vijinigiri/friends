@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="Stylesheet" href="friends.css">
+    
+</head>
+<body>
+    <audio id="song1" src="songs/song1.mp3"></audio>
+    <audio id="song2" src="songs/song2.mp3"></audio>
+    <audio id="song3" src="songs/song3.mp3"></audio>
+    <audio id="song4" src="songs/song4.mp3"></audio>
+    <audio id="song5" src="songs/song5.mp3"></audio>
+    <audio id="song6" src="songs/song6.mp3"></audio>
+    <audio id="song7" src="songs/song7.mp3"></audio>
+    <h1 class="header"> happy friendship day </h1>
+    <div  class="main">
+        <div class="top">
+            <div onclick="playSong('song1')">
+                <img class="image" src="1.jpg" alt="friends">
+            </div>
+            <div onclick="playSong('song2')">
+                <img class="image" src="2.jpg" alt="friends">
+            </div>
+            <div onclick="playSong('song3')">
+                <img class="image" src="3.jpg" alt="friends">
+            </div>
+            
+        </div>
+        <div class="middle">
+            <div onclick="playSong('song4')">
+                <img class="image" src="4.jpg" alt="friends">
+            </div>
+            <p class="text">happy friendship day guys</p>
+        </div>
+        <div class="bottum">
+            <div onclick="playSong('song5')">
+                <img class="image" src="5.jpg" alt="friends">
+            </div>
+            <div onclick="playSong('song6')">
+                <img class="image" src="6.jpg" alt="friends">
+            </div>
+            <div onclick="playSong('song7')">
+                <img class="image" src="7.jpg" alt="friends">
+            </div>
+            
+        </div>
+    </div>
+    <h1 class="header">
+        advance happy birth day naveen annaya and krishna bro
+    </h1>
+    <script>
+        
+        let audi = 0;
+        let prev_song = "";
+        let flag = 0;
+        function playSong(song_name) {
+            var audio = document.getElementById(song_name);
+            var pre_audio = document.getElementById(prev_song);
+            if (prev_song!=="" && prev_song!==song_name){
+                console.log(prev_song)
+                pre_audio.pause();
+                audi=0;
+            }
+            if (audi===0){
+                audio.play();
+                audi=1;
+            }
+            else{
+                audio.pause();
+                audi=0;
+            }
+            prev_song = song_name;
+        }
+        var selectedImage = null;
+
+    function handleImageClick() {
+      if (selectedImage) {
+        // If there's a previously selected image and it's not the clicked one
+        if (selectedImage !== this) {
+          selectedImage.classList.remove('selected');
+        } else {
+          // If the clicked image is already selected, toggle its state
+          this.classList.toggle('selected');
+          return;
+        }
+      }
+
+      // Set the clicked image as selected
+      this.classList.add('selected');
+      selectedImage = this;
+    }
+
+    // Attach the click event listener to each image
+    var images = document.querySelectorAll('.image');
+    for (var i = 0; i < images.length; i++) {
+      images[i].addEventListener('click', handleImageClick);
+    }
+      </script>
+</body>
+
+</html>
